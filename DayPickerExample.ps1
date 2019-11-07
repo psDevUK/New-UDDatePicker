@@ -1,5 +1,5 @@
 Import-Module -Name UniversalDashboard.Community
-Import-Module "C:\ud\UDatePicker\Working\src\output\UniversalDashboard.UDDatePicker\UniversalDashboard.UDDatePicker.psd1"
+Import-Module UniversalDashboard.UDDatePicker
 Get-UDDashboard | Stop-UDDashboard
 Start-UDDashboard -Port 10005 -Dashboard (
     New-UDDashboard -Title "Powershell UniversalDashboard" -BackgroundColor 'white' -Content {
