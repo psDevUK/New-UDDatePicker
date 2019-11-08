@@ -7,13 +7,14 @@ Start-UDDashboard -Port 10005 -Dashboard (
             New-UDColumn -size 6 -Content {
                 New-UDDatePicker -Id "Picker"
                 New-UDButton -Text "Get Dates" -OnClick {
-                     $from = (Get-UDElement -Id "Picker").Attributes.from
+                   $from = (Get-UDElement -Id "Picker").Attributes.from
                     [datetime]$s = "$from"
-                    $Start = "$($s.Date.Year)-$($s.Date.Month)-$($s.Date.Day)"
+                    $Start = get-date $s -format 'yyyy-MM-dd'
                     $to = (Get-UDElement -Id "Picker").Attributes.to
                     [datetime]$e = "$to"
-                    $End = "$($e.Date.Year)-$($e.Date.Month)-$($e.Date.Day)"
+                    $End = get-date $e -format 'yyyy-MM-dd'
                     show-udtoast -message "You Selected $Start until $End" -duration 5000 -Position center
+
 
 
                 }
